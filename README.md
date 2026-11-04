@@ -49,9 +49,12 @@ A terminal-based Hangman game developed using Python. The player must guess a ra
 python hangman.py
 ```
 
-### Dataset Source
+### Screenshots:
+<img width="907" height="688" alt="Screenshot (532)" src="https://github.com/user-attachments/assets/1468f4c3-322a-46b3-a94b-9ec74f594501" />
 
-English word list: [Google 10,000 English Words](https://github.com/first20hours/google-10000-english)
+<img width="975" height="673" alt="Screenshot (534)" src="https://github.com/user-attachments/assets/c56c2710-b2a8-4dee-a80f-b3c44f5c32c4" />
+
+
 
 ### Learning Outcome
 
