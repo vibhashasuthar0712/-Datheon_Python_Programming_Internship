@@ -1,0 +1,5 @@
+Ticker,Buy Price,Quantity,Current Price,Price Source,Investment,Current Value,Profit/Loss,Profit/Loss Percentage
+AAPL,49.0,2,349.510009765625,Yahoo Finance Quote,98.0,699.02,601.02,613.29
+MO,34.0,4,78.01000213623047,Yahoo Finance Quote,136.0,312.04,176.04,129.44
+ACN,23.0,5,264.2699890136719,Yahoo Finance Quote,115.0,1321.35,1206.35,1049.0
+TOTAL,,,,,349.0,2332.41,1983.41,568.31
