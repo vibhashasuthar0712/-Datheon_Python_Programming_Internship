@@ -1,66 +1,98 @@
 # Datheon Python Programming Internship
 
-This repository contains Python programming projects and assignments completed as part of the Datheon Python Programming Internship.
+A collection of Python projects developed as part of the **Datheon Python Programming Internship**. This repository demonstrates practical Python programming concepts, problem-solving, data structures, file handling, input validation, and working with external data sources.
 
-## Project 1: Hangman Game
+## Projects
 
-A terminal-based Hangman game developed using Python. The player must guess a randomly selected hidden word, one letter at a time, within six incorrect attempts.
+### 1. Hangman Game
 
-### Features
+A command-line word guessing game built using Python.
 
-- Random word selection using Python's `random` module.
-- English word dataset loaded from a text file.
-- Interactive letter-by-letter guessing.
-- Masked word display.
-- Tracks correctly and incorrectly guessed letters using sets.
+**Features:**
+- Random word selection from an external text file.
+- Six attempts to guess the correct word.
+- Dynamic display of hidden and correctly guessed letters.
+- Tracks guessed and incorrect letters using Python sets.
 - Prevents duplicate guesses from reducing attempts.
-- Six attempts with progressive ASCII Hangman drawings.
-- Input validation.
-- Win and lose messages.
-- Reveals the correct word when the player loses.
-- Play Again functionality.
+- ASCII-based Hangman stages.
+- Input validation and win/lose messages.
+- Option to play again.
 
-### Technologies Used
+**Technologies:** Python, Random Module, Sets, Loops, Functions, File Handling.
 
-- Python 3
-- Random module
-- File Handling
-- Lists and Sets
-- Loops and Conditional Statements
-- Functions
-
-### Project Structure
-
-```text
-01_Hangman_Game/
-├── hangman.py
-└── eng_words_list.txt
-```
-
-### How to Run
-
-1. Install Python 3.
-2. Clone or download this repository.
-3. Open the project folder in VS Code or any Python IDE.
-4. Navigate to `01_Hangman_Game`.
-5. Run the following command:
+**Run the project:**
 
 ```bash
+cd 01_Hangman_Game
 python hangman.py
 ```
 
-### Screenshots:
-<img width="907" height="688" alt="Screenshot (532)" src="https://github.com/user-attachments/assets/1468f4c3-322a-46b3-a94b-9ec74f594501" />
+### 2. Investment Portfolio Tracker
 
-<img width="975" height="673" alt="Screenshot (534)" src="https://github.com/user-attachments/assets/c56c2710-b2a8-4dee-a80f-b3c44f5c32c4" />
+A Python-based investment portfolio tracking utility that allows users to manage stock holdings and calculate their portfolio performance.
 
+**Features:**
+- Reads valid S&P 500 ticker symbols from an external CSV dataset.
+- Accepts stock ticker symbols, purchase prices, and share quantities.
+- Validates ticker symbols and prevents duplicate entries.
+- Fetches available stock prices using Yahoo Finance through `yfinance`.
+- Provides manual price entry when automatic fetching is unavailable.
+- Calculates individual stock investment and current market value.
+- Calculates profit/loss and percentage gain/loss for each holding.
+- Calculates overall portfolio investment, current value, and performance.
+- Exports stock details and portfolio summary to `portfolio_summary.csv`.
 
+**Technologies:** Python, CSV Module, File Handling, Dictionaries, Exception Handling, yfinance.
 
-### Learning Outcome
+**Install dependency:**
 
-This project helped me practice Python fundamentals, including file handling, random selection, data structures, loops, functions, input validation, and conditional logic.
+```bash
+pip install yfinance
+```
+
+**Run the project:**
+
+```bash
+cd 02_Investment_Portfolio_Tracker
+python portfolio.py
+```
+
+**Dataset:** [S&P 500 Companies CSV Dataset](https://raw.githubusercontent.com/datasets/s-and-p-500-companies/master/data/constituents.csv)
+
+The generated `portfolio_summary.csv` contains individual stock calculations and an overall portfolio summary.
 
 ---
 
-**Author:** Vibhasha Suthar  
-**Internship:** Datheon Python Programming Internship
+## Repository Structure
+
+```text
+Datheon_Python_Programming_Internship/
+│
+├── 01_Hangman_Game/
+│   ├── hangman.py
+│   └── eng_words_list.txt
+│
+├── 02_Investment_Portfolio_Tracker/
+│   ├── portfolio.py
+│   ├── constituents.csv
+│   └── portfolio_summary.csv  # Generated after execution
+│
+├── README.md
+└── .gitignore
+```
+
+## Skills & Concepts Practiced
+
+- Python fundamentals and problem-solving
+- Data structures: Lists, Sets, and Dictionaries
+- Loops, conditional statements, and functions
+- Input validation and exception handling
+- File handling and CSV operations
+- Working with external datasets
+- Integrating third-party Python libraries
+- Data calculations and reporting
+
+## About This Repository
+
+This repository documents my learning journey through practical Python programming projects during the Datheon Python Programming Internship. Each project focuses on applying programming concepts to solve real-world problems.
+
