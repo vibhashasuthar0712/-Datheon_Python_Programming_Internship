@@ -20,6 +20,8 @@ The project focuses on implementing Python programming concepts such as loops, c
 ## App Demo:
 Demo Link: https://nkmhevpwrxtrbgcc8okrmf.streamlit.app/
 
+<img width="1366" height="633" alt="Screenshot (549)" src="https://github.com/user-attachments/assets/8b593a09-8aab-43d2-bc3d-3d1d516fe786" />
+
 
 ## Technologies Used
 
