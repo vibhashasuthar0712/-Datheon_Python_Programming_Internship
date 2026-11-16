@@ -78,7 +78,7 @@ Users can end the conversation using:
 ---
 
 ## App Demo:
-https://project03rule-based-interactive-chatbot-6rzyx5oneyvoapihmmzjyj.streamlit.app/
+Demo Link: https://project03rule-based-interactive-chatbot-6rzyx5oneyvoapihmmzjyj.streamlit.app/
 
 ---
 ## 🛠️ Technologies Used
