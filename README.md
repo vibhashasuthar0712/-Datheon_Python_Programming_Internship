@@ -16,6 +16,11 @@ A command-line word guessing game developed using Python.
 - Displays ASCII-based hangman stages.
 - Uses Python sets and loops for game logic.
 
+## Demo Link:
+Link:
+<img width="1366" height="633" alt="Screenshot (549)" src="https://github.com/user-attachments/assets/8c03795f-66b8-4ef4-b9e2-8f3124b515f2" />
+
+
 ### 2. Investment Portfolio Tracker
 A Python-based application that tracks stock investments and generates a portfolio summary.
 
@@ -26,6 +31,11 @@ A Python-based application that tracks stock investments and generates a portfol
 - Handles unavailable price data with fallback options.
 - Calculates portfolio information.
 - Exports portfolio summaries to a CSV file.
+
+## Demo Link:
+Link:
+<img width="1366" height="559" alt="Screenshot (550)" src="https://github.com/user-attachments/assets/068e6f72-d040-4ef9-ba29-5cf1d8185add" />
+
 
 ### 3. Rule-Based Internship Support Chatbot
 An interactive command-line chatbot that answers internship-related questions using predefined FAQs.
@@ -38,6 +48,11 @@ An interactive command-line chatbot that answers internship-related questions us
 - Supports multiple FAQ matches in one query.
 - Provides contextual fallback responses.
 - Handles invalid input and clean exit commands.
+
+## Demo Link:
+Link:
+<img width="1366" height="645" alt="Screenshot (551)" src="https://github.com/user-attachments/assets/ece6aa29-6856-4cc4-af33-44765bbb1756" />
+
 
 ## Technologies Used
 
