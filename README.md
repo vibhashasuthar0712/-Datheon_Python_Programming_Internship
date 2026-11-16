@@ -18,6 +18,7 @@ A command-line word guessing game developed using Python.
 
 ## Demo Link:
 Link:https://nkmhevpwrxtrbgcc8okrmf.streamlit.app/
+
 <img width="1366" height="633" alt="Screenshot (549)" src="https://github.com/user-attachments/assets/8c03795f-66b8-4ef4-b9e2-8f3124b515f2" />
 
 
@@ -33,7 +34,8 @@ A Python-based application that tracks stock investments and generates a portfol
 - Exports portfolio summaries to a CSV file.
 
 ## Demo Link:
-Link:
+Link:https://jnkspjzk4gxccxt2te5qcc.streamlit.app/
+
 <img width="1366" height="559" alt="Screenshot (550)" src="https://github.com/user-attachments/assets/068e6f72-d040-4ef9-ba29-5cf1d8185add" />
 
 
