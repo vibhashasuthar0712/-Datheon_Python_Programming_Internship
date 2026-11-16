@@ -17,7 +17,7 @@ A command-line word guessing game developed using Python.
 - Uses Python sets and loops for game logic.
 
 ## Demo Link:
-Link:
+Link:https://nkmhevpwrxtrbgcc8okrmf.streamlit.app/
 <img width="1366" height="633" alt="Screenshot (549)" src="https://github.com/user-attachments/assets/8c03795f-66b8-4ef4-b9e2-8f3124b515f2" />
 
 
