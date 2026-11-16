@@ -6,7 +6,6 @@ import plotly.express as px
 import math
 from pathlib import Path
 
-
 # ==========================================================
 # 1. PAGE CONFIGURATION
 # ==========================================================
