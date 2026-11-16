@@ -2,8 +2,9 @@
 import streamlit as st
 import pandas as pd
 import yfinance as yf
+import plotly.express as px
+import math
 from pathlib import Path
-from io import BytesIO
 
 
 # ==========================================================
@@ -112,30 +113,39 @@ def load_valid_tickers():
 def fetch_current_price(ticker):
 
     try:
+
         yahoo_ticker = ticker.replace(".", "-")
         stock = yf.Ticker(yahoo_ticker)
 
-        # First attempt: fast_info
+        # First attempt: latest market price
         try:
+
             price = stock.fast_info["last_price"]
 
-            if price is not None and pd.notna(price) and price > 0:
-                return float(price), "Yahoo Finance"
+            if price is not None:
+
+                price = float(price)
+
+                if math.isfinite(price) and price > 0:
+                    return price, "Yahoo Finance"
 
         except Exception:
             pass
 
         # Second attempt: historical closing price
         try:
+
             history = stock.history(period="5d")
 
             if not history.empty:
+
                 closing_prices = history["Close"].dropna()
 
                 if not closing_prices.empty:
+
                     price = float(closing_prices.iloc[-1])
 
-                    if price > 0:
+                    if math.isfinite(price) and price > 0:
                         return price, "Historical Close"
 
         except Exception:
@@ -171,6 +181,7 @@ def calculate_portfolio(data):
         )
 
         results.append({
+
             "Ticker": stock["Ticker"],
             "Buy Price": stock["Buy Price"],
             "Quantity": stock["Quantity"],
@@ -180,6 +191,7 @@ def calculate_portfolio(data):
             "Current Value": current_value,
             "Profit/Loss": profit_loss,
             "Profit/Loss Percentage": profit_loss_percentage
+
         })
 
     return pd.DataFrame(results)
@@ -193,20 +205,27 @@ def create_csv(dataframe):
 
     export_df = dataframe.copy()
 
+    total_investment = export_df["Investment"].sum()
+    total_current_value = export_df["Current Value"].sum()
+    total_profit_loss = export_df["Profit/Loss"].sum()
+
+    total_percentage = (
+        (total_profit_loss / total_investment) * 100
+        if total_investment != 0 else 0
+    )
+
     total_row = {
+
         "Ticker": "TOTAL",
         "Buy Price": "",
         "Quantity": "",
         "Current Price": "",
         "Price Source": "",
-        "Investment": export_df["Investment"].sum(),
-        "Current Value": export_df["Current Value"].sum(),
-        "Profit/Loss": export_df["Profit/Loss"].sum(),
-        "Profit/Loss Percentage": (
-            export_df["Profit/Loss"].sum()
-            / export_df["Investment"].sum() * 100
-            if export_df["Investment"].sum() != 0 else 0
-        )
+        "Investment": total_investment,
+        "Current Value": total_current_value,
+        "Profit/Loss": total_profit_loss,
+        "Profit/Loss Percentage": total_percentage
+
     }
 
     export_df = pd.concat(
@@ -221,15 +240,18 @@ def create_csv(dataframe):
 # 7. HERO SECTION
 # ==========================================================
 
+
 st.markdown("""
 <div class="hero">
+    <div class="hero-tag">✨ SMART INVESTMENT DASHBOARD</div>
     <h1>📈 Investment Portfolio Tracker</h1>
     <p>
-        Track your stock investments, monitor market value,
-        and analyze your portfolio performance.
+        Monitor your stock investments, track portfolio performance,
+        and gain insights into your investment growth — all in one place.
     </p>
 </div>
 """, unsafe_allow_html=True)
+
 
 
 # ==========================================================
@@ -284,6 +306,7 @@ with st.form("portfolio_form"):
         col1, col2, col3 = st.columns(3)
 
         with col1:
+
             ticker = st.text_input(
                 "Stock Ticker",
                 placeholder="e.g. AAPL",
@@ -291,6 +314,7 @@ with st.form("portfolio_form"):
             )
 
         with col2:
+
             buy_price = st.number_input(
                 "Buy Price ($)",
                 min_value=0.0,
@@ -300,6 +324,7 @@ with st.form("portfolio_form"):
             )
 
         with col3:
+
             quantity = st.number_input(
                 "Quantity",
                 min_value=0,
@@ -309,9 +334,11 @@ with st.form("portfolio_form"):
             )
 
         stock_inputs.append({
+
             "Ticker": ticker.strip().upper(),
             "Buy Price": buy_price,
             "Quantity": quantity
+
         })
 
         st.divider()
@@ -328,6 +355,10 @@ with st.form("portfolio_form"):
 
 if submitted:
 
+    # Reset previous analysis before processing new input
+    st.session_state["analysis_complete"] = False
+    st.session_state["portfolio_submitted"] = False
+
     errors = []
     seen_tickers = set()
     valid_stocks = []
@@ -337,33 +368,45 @@ if submitted:
         ticker = stock["Ticker"]
 
         if not ticker:
-            errors.append("Please enter a ticker for every stock.")
+
+            errors.append(
+                "Please enter a ticker for every stock."
+            )
+
             continue
 
         if ticker not in valid_tickers:
+
             errors.append(
                 f"{ticker} is not a valid S&P 500 ticker."
             )
+
             continue
 
         if ticker in seen_tickers:
+
             errors.append(
                 f"Duplicate ticker found: {ticker}"
             )
+
             continue
 
         seen_tickers.add(ticker)
 
         if stock["Buy Price"] <= 0:
+
             errors.append(
                 f"Buy price for {ticker} must be greater than zero."
             )
+
             continue
 
         if stock["Quantity"] <= 0:
+
             errors.append(
                 f"Quantity for {ticker} must be greater than zero."
             )
+
             continue
 
         valid_stocks.append(stock)
@@ -375,7 +418,9 @@ if submitted:
 
     elif not valid_stocks:
 
-        st.warning("Please enter at least one valid stock.")
+        st.warning(
+            "Please enter at least one valid stock."
+        )
 
     else:
 
@@ -415,6 +460,7 @@ if submitted:
 
         st.session_state["resolved_stocks"] = resolved_stocks
         st.session_state["unresolved_stocks"] = unresolved_stocks
+
         st.session_state["portfolio_submitted"] = True
 
 
@@ -460,9 +506,11 @@ if st.session_state.get("portfolio_submitted", False):
         if manual_submitted:
 
             missing_prices = [
+
                 ticker
                 for ticker, price in manual_prices.items()
                 if price <= 0
+
             ]
 
             if missing_prices:
@@ -506,7 +554,9 @@ if st.session_state.get("analysis_complete", False):
     )
 
     total_investment = portfolio_df["Investment"].sum()
+
     total_current_value = portfolio_df["Current Value"].sum()
+
     total_profit_loss = portfolio_df["Profit/Loss"].sum()
 
     total_percentage = (
@@ -515,6 +565,10 @@ if st.session_state.get("analysis_complete", False):
     )
 
     st.divider()
+
+    # ------------------------------------------------------
+    # PORTFOLIO OVERVIEW
+    # ------------------------------------------------------
 
     st.subheader("📊 Portfolio Overview")
 
@@ -541,23 +595,115 @@ if st.session_state.get("analysis_complete", False):
         len(portfolio_df)
     )
 
-    # Individual stock results
+
+    # ------------------------------------------------------
+    # STOCK-WISE PERFORMANCE
+    # ------------------------------------------------------
+
     st.subheader("📋 Stock-wise Performance")
 
     st.dataframe(
+
         portfolio_df.style.format({
+
             "Buy Price": "${:,.2f}",
             "Current Price": "${:,.2f}",
             "Investment": "${:,.2f}",
             "Current Value": "${:,.2f}",
             "Profit/Loss": "${:,.2f}",
             "Profit/Loss Percentage": "{:.2f}%"
+
         }),
+
         use_container_width=True,
         hide_index=True
+
     )
 
-    # Portfolio chart
+
+    # ------------------------------------------------------
+    # NEW FEATURE: INVESTMENT ALLOCATION DONUT CHART
+    # ------------------------------------------------------
+
+    st.divider()
+
+    st.subheader("🍩 Portfolio Investment Allocation")
+
+    st.write(
+        "Explore how your total investment is distributed "
+        "across different stocks."
+    )
+
+    allocation_df = portfolio_df[
+        ["Ticker", "Investment"]
+    ].copy()
+
+    if total_investment > 0:
+
+        allocation_df["Allocation (%)"] = (
+            allocation_df["Investment"] / total_investment
+        ) * 100
+
+        fig = px.pie(
+
+            allocation_df,
+            names="Ticker",
+            values="Investment",
+            hole=0.55,
+            hover_data={
+                "Investment": ":,.2f",
+                "Allocation (%)": ":.2f"
+            },
+            title="Investment Distribution by Stock"
+
+        )
+
+        fig.update_traces(
+
+            textposition="inside",
+            textinfo="percent",
+            hovertemplate=(
+                "<b>%{label}</b><br>"
+                "Investment: $%{value:,.2f}<br>"
+                "Allocation: %{percent}"
+                "<extra></extra>"
+            )
+
+        )
+
+        fig.update_layout(
+
+            height=430,
+            showlegend=True,
+            legend_title_text="Stocks",
+            paper_bgcolor="rgba(0,0,0,0)",
+            plot_bgcolor="rgba(0,0,0,0)",
+            margin=dict(t=60, b=20, l=20, r=20)
+
+        )
+
+        st.plotly_chart(
+            fig,
+            use_container_width=True
+        )
+
+        st.caption(
+            "Allocation percentages are calculated using "
+            "the original purchase investment of each stock."
+        )
+
+    else:
+
+        st.info(
+            "Investment allocation is unavailable because "
+            "the total investment is zero."
+        )
+
+
+    # ------------------------------------------------------
+    # INVESTMENT VS CURRENT VALUE
+    # ------------------------------------------------------
+
     st.subheader("📈 Investment vs Current Value")
 
     chart_df = portfolio_df.set_index("Ticker")[
@@ -566,27 +712,50 @@ if st.session_state.get("analysis_complete", False):
 
     st.bar_chart(chart_df)
 
-    # Download report
+
+    # ------------------------------------------------------
+    # CSV DOWNLOAD
+    # ------------------------------------------------------
+
+    st.divider()
+
     st.subheader("📥 Download Your Report")
 
     csv_data = create_csv(portfolio_df)
 
     st.download_button(
+
         label="Download Portfolio Summary CSV",
         data=csv_data,
         file_name="portfolio_summary.csv",
         mime="text/csv",
         use_container_width=True
+
     )
 
+
+    # ------------------------------------------------------
+    # FINAL PORTFOLIO STATUS
+    # ------------------------------------------------------
+
     if total_profit_loss > 0:
-        st.success("Your portfolio is currently showing a profit!")
+
+        st.success(
+            "Your portfolio is currently showing a profit!"
+        )
 
     elif total_profit_loss < 0:
-        st.warning("Your portfolio is currently showing a loss.")
+
+        st.warning(
+            "Your portfolio is currently showing a loss."
+        )
 
     else:
-        st.info("Your portfolio is currently at break-even.")
+
+        st.info(
+            "Your portfolio is currently at break-even."
+        )
+
 
     st.caption(
         "Note: Market prices are retrieved from Yahoo Finance "
