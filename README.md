@@ -52,7 +52,8 @@ An interactive command-line chatbot that answers internship-related questions us
 - Handles invalid input and clean exit commands.
 
 ## Demo Link:
-Link:
+Link:https://project03rule-based-interactive-chatbot-6rzyx5oneyvoapihmmzjyj.streamlit.app/
+
 <img width="1366" height="645" alt="Screenshot (551)" src="https://github.com/user-attachments/assets/ece6aa29-6856-4cc4-af33-44765bbb1756" />
 
 
