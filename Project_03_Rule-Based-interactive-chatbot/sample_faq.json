@@ -1,0 +1,71 @@
+{
+  "greetings": [
+    "hello",
+    "hi",
+    "hey there",
+    "hii",
+    "hey",
+    "good morning",
+    "good afternoon"
+  ],
+  "faqs": [
+    {
+      "question": "What are your hours of operation?",
+      "keywords": ["hours", "working hours", "timings", "office hours"],
+      "answer": "We operate Monday through Friday from 9:00 AM to 6:00 PM IST."
+    },
+    {
+      "question": "How do I submit my internship project?",
+      "keywords": ["submit project", "project submission", "submit internship task"],
+      "answer": "You can submit your public GitHub repository link through your Student Workspace."
+    },
+    {
+      "question": "When will I receive my certificate?",
+      "keywords": [
+    "certificate",
+    "receive my certificate",
+    "certificate date",
+    "completion certificate",
+    "certificate timeline"
+    ],
+      "answer": "Certificates are reviewed and issued within 3-5 business days after your code review."
+    },
+    {
+      "question": "How do I upload my project to GitHub?",
+      "keywords": ["github", "upload code", "push code", "repository"],
+      "answer": "Create a public GitHub repository, upload your project files, and share the repository link through your Student Workspace."
+    },
+    {
+      "question": "How does the code review process work?",
+      "keywords": ["code review", "review process", "project review"],
+      "answer": "Your submitted project is reviewed to evaluate its implementation and completion."
+    },
+    {
+      "question": "What should I do if I face an issue with my task?",
+      "keywords": ["task issue", "problem", "error", "help"],
+      "answer": "Review the task instructions and check your implementation. For further assistance, contact your internship support team."
+    },
+
+
+    {
+      "question": "Can I get a hard copy of my certificate?",
+      "keywords": [
+          "hard copy",
+          "physical copy",
+          "printed certificate"
+      ],
+      "answer": "Please contact your internship support team to confirm whether a physical certificate copy is available."
+  },
+  {
+      "question": "Can I add my internship certificate to my resume?",
+      "keywords": [
+          "resume",
+          "cv",
+          "add to resume",
+          "mention certificate"
+      ],
+      "answer": "Yes, you can include your internship certificate in your resume after receiving it. You can also add it to your LinkedIn profile."
+  }
+
+  ]
+}
