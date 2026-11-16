@@ -34,7 +34,8 @@ The project focuses on practical Python programming concepts such as file handli
 ## App Demo:
 Demo Link: https://jnkspjzk4gxccxt2te5qcc.streamlit.app/
 
-![Uploading Screenshot (550).png…]()
+<img width="1366" height="559" alt="Screenshot (550)" src="https://github.com/user-attachments/assets/0fd404ce-117f-4923-96dc-e8a1c512c99b" />
+
 
 
 ## Project Structure
