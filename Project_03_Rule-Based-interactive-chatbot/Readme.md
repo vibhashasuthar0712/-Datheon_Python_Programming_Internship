@@ -80,6 +80,9 @@ Users can end the conversation using:
 ## App Demo:
 Demo Link: https://project03rule-based-interactive-chatbot-6rzyx5oneyvoapihmmzjyj.streamlit.app/
 
+<img width="1366" height="768" alt="Screenshot (551)" src="https://github.com/user-attachments/assets/15635d06-3142-4f39-a682-ace675725434" />
+
+
 ---
 ## 🛠️ Technologies Used
 
