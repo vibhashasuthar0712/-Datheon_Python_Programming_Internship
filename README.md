@@ -1,98 +1,124 @@
 # Datheon Python Programming Internship
 
-A collection of Python projects developed as part of the **Datheon Python Programming Internship**. This repository demonstrates practical Python programming concepts, problem-solving, data structures, file handling, input validation, and working with external data sources.
+This repository contains the projects and tasks completed as part of my **Datheon Python Programming Internship**.
+
+The internship focuses on developing practical Python programming skills through hands-on projects involving problem-solving, data handling, file operations, APIs, and rule-based automation.
 
 ## Projects
 
 ### 1. Hangman Game
+A command-line word guessing game developed using Python.
 
-A command-line word guessing game built using Python.
-
-**Features:**
-- Random word selection from an external text file.
-- Six attempts to guess the correct word.
-- Dynamic display of hidden and correctly guessed letters.
-- Tracks guessed and incorrect letters using Python sets.
-- Prevents duplicate guesses from reducing attempts.
-- ASCII-based Hangman stages.
-- Input validation and win/lose messages.
-- Option to play again.
-
-**Technologies:** Python, Random Module, Sets, Loops, Functions, File Handling.
-
-**Run the project:**
-
-```bash
-cd 01_Hangman_Game
-python hangman.py
-```
+**Key Features:**
+- Random word selection from a word list.
+- Limited attempts to guess the hidden word.
+- Tracks correctly guessed letters.
+- Displays ASCII-based hangman stages.
+- Uses Python sets and loops for game logic.
 
 ### 2. Investment Portfolio Tracker
+A Python-based application that tracks stock investments and generates a portfolio summary.
 
-A Python-based investment portfolio tracking utility that allows users to manage stock holdings and calculate their portfolio performance.
+**Key Features:**
+- Accepts and validates stock ticker symbols.
+- Prevents duplicate stock entries.
+- Retrieves stock prices using Yahoo Finance data.
+- Handles unavailable price data with fallback options.
+- Calculates portfolio information.
+- Exports portfolio summaries to a CSV file.
 
-**Features:**
-- Reads valid S&P 500 ticker symbols from an external CSV dataset.
-- Accepts stock ticker symbols, purchase prices, and share quantities.
-- Validates ticker symbols and prevents duplicate entries.
-- Fetches available stock prices using Yahoo Finance through `yfinance`.
-- Provides manual price entry when automatic fetching is unavailable.
-- Calculates individual stock investment and current market value.
-- Calculates profit/loss and percentage gain/loss for each holding.
-- Calculates overall portfolio investment, current value, and performance.
-- Exports stock details and portfolio summary to `portfolio_summary.csv`.
+### 3. Rule-Based Internship Support Chatbot
+An interactive command-line chatbot that answers internship-related questions using predefined FAQs.
 
-**Technologies:** Python, CSV Module, File Handling, Dictionaries, Exception Handling, yfinance.
+**Key Features:**
+- Loads FAQ data from a JSON file.
+- Normalizes user input.
+- Uses regular expressions for keyword matching.
+- Detects greetings and acknowledgements.
+- Supports multiple FAQ matches in one query.
+- Provides contextual fallback responses.
+- Handles invalid input and clean exit commands.
 
-**Install dependency:**
+## Technologies Used
 
-```bash
-pip install yfinance
-```
-
-**Run the project:**
-
-```bash
-cd 02_Investment_Portfolio_Tracker
-python portfolio.py
-```
-
-**Dataset:** [S&P 500 Companies CSV Dataset](https://raw.githubusercontent.com/datasets/s-and-p-500-companies/master/data/constituents.csv)
-
-The generated `portfolio_summary.csv` contains individual stock calculations and an overall portfolio summary.
-
----
+- Python
+- Regular Expressions (`re`)
+- JSON
+- File Handling
+- CSV
+- Pandas
+- yfinance
+- Object-oriented and procedural programming concepts
 
 ## Repository Structure
 
 ```text
 Datheon_Python_Programming_Internship/
 │
-├── 01_Hangman_Game/
+├── Hangman/
 │   ├── hangman.py
 │   └── eng_words_list.txt
 │
-├── 02_Investment_Portfolio_Tracker/
+├── Investment_Portfolio_Tracker/
 │   ├── portfolio.py
-│   ├── constituents.csv
-│   └── portfolio_summary.csv  # Generated after execution
+│   └── constituents.csv
 │
-├── README.md
-└── .gitignore
+├── Rule-Based-Internship-Support-Chatbot/
+│   ├── chatbot.py
+│   └── sample_faq.json
+│
+└── README.md
 ```
 
-## Skills & Concepts Practiced
+*Note: Update folder and file names in this structure if they differ from your actual repository.*
 
-- Python fundamentals and problem-solving
-- Data structures: Lists, Sets, and Dictionaries
-- Loops, conditional statements, and functions
-- Input validation and exception handling
-- File handling and CSV operations
-- Working with external datasets
-- Integrating third-party Python libraries
-- Data calculations and reporting
+## Getting Started
 
-## About This Repository
+### 1. Clone the repository
 
-This repository documents my learning journey through practical Python programming projects during the Datheon Python Programming Internship. Each project focuses on applying programming concepts to solve real-world problems.
+```bash
+git clone https://github.com/vibhashasuthar0712/Datheon_Python_Programming_Internship.git
+```
 
+### 2. Navigate to the project directory
+
+```bash
+cd Datheon_Python_Programming_Internship
+```
+
+### 3. Run an individual project
+
+Navigate to the respective project folder and execute its Python file.
+
+For example, to run the chatbot:
+
+```bash
+python chatbot.py
+```
+
+Install the dependencies required by an individual project before running it.
+
+## Learning Outcomes
+
+Through these projects, I gained practical experience in:
+
+- Python programming and problem-solving.
+- Data validation and error handling.
+- Working with JSON and CSV files.
+- Regular expressions and text processing.
+- API-based data retrieval.
+- Building interactive command-line applications.
+- Organizing and maintaining Python projects.
+
+## Internship
+
+**Organization:** Datheon  
+**Program:** Python Programming Internship
+
+---
+
+This repository represents my practical learning journey and the projects developed during the internship.
+
+**Developed by:** Vibhasha Suthar
+
+GitHub: https://github.com/vibhashasuthar0712
